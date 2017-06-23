@@ -341,10 +341,12 @@ module Octokit
       alias :watched :subscriptions
 
       def installations(options = {})
+        options = ensure_api_media_type(:integrations, options)
         paginate "user/installations", options
       end
 
       def installation_repositories(installation_id, options = {})
+        options = ensure_api_media_type(:integrations, options)
         paginate "user/installations/#{installation_id}/repositories", options
       end
 
