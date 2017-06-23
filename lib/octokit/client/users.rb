@@ -340,6 +340,14 @@ module Octokit
       end
       alias :watched :subscriptions
 
+      def installaions(options = {})
+        paginate "user/installaions", options
+      end
+
+      def installaion_repositories(installation_id, options = {})
+        paginate "user/installaions/#{installation_id}/repositories", options
+      end
+
     end
 
     private
