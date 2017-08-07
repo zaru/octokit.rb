@@ -4,6 +4,11 @@ module Octokit
     # Methods for the Apps API
     module Apps
 
+      def find_installation_repositories(installation_id, options = {})
+        opts = ensure_api_media_type(:integrations, options)
+        paginate "/user/installations/#{installation_id}/repositories", opts
+      end
+
       # Find all installations that belong to an App
       #
       # @param options [Hash] An customizable set of options
